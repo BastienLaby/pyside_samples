@@ -23,9 +23,21 @@ class Window(QMainWindow):
         label = QLabel("Something here.")
         layout.addWidget(label)
 
+        # spinboxes
+        self.sp1 = QDoubleSpinBox()
+        self.sp2 = QDoubleSpinBox()
+        self.sp1.valueChanged.connect(self.cb_spinboxes)
+        self.sp2.valueChanged.connect(self.cb_spinboxes)
+        layout.addWidget(self.sp1)
+        layout.addWidget(self.sp2)
+
         lineEdit.textEdited.connect(label.setText)
 
         self.setCentralWidget(widget)
+
+
+    def cb_spinboxes(self, value):
+        print self.sender(), value
 
 
 if __name__ == "__main__":

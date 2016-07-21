@@ -1,6 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+# @Package widget_bunch.py
+# Package description
+# Created on 14/09/2015
+# @author bastien.laby
+# Updated on 14/09/2015 by bastien.laby
+
+# -*- coding: utf-8 -*-
+
+# @Package widget_bunch.py
+# Package description
+# Created on 11/09/2015
+# @author bastien.laby
+# Updated on 11/09/2015 by bastien.laby
+
+# -*- coding: utf-8 -*-
+
 import sys
 
 from PySide.QtGui import *
@@ -49,8 +65,9 @@ class Window(QMainWindow):
 
         # Double SpinBox
         doubleSpinBox = QDoubleSpinBox(self)
+        doubleSpinBox.setMinimum(-10.0)
+        doubleSpinBox.setMaximum(10.0)
         doubleSpinBox.setSingleStep(0.1)
-        doubleSpinBox.setSuffix(" pounds")
         layout.addWidget(doubleSpinBox)
 
         # Font Combo Box
@@ -61,6 +78,15 @@ class Window(QMainWindow):
         lcdNumber = QLCDNumber(10, self)
         lcdNumber.display("123 ABC")
         layout.addWidget(lcdNumber)
+
+        # Object Name Test
+        obj1 = QPushButton("1")
+        obj1.setObjectName("objtest")
+        layout.addWidget(obj1)
+        obj2 = QPushButton("2")
+        obj2.setObjectName("objtest")
+        layout.addWidget(obj2)
+        print obj1.objectName(), obj2.objectName()
 
         layout.addStretch(1)
         self.setCentralWidget(widget)
